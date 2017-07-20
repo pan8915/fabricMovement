@@ -50,13 +50,10 @@ $(document).ready(function() {
     this.W = 70;
     this.H = 70;
 
-    this.age = 0;
-    this.dies = 500;
     this.image = image;
 
     starIndex++;
     fabrics[starIndex] = this;
-
     this.ID = starIndex;
   }
 
@@ -69,7 +66,7 @@ $(document).ready(function() {
       mouseY > this.Y && mouseY < this.Y + this.H) {
       var img = new Image();
       img.src = this.image;
-      f.drawImage(img, this.X, this.Y, this.W + 200, this.H + 200);
+      f.drawImage(img, this.X, this.Y, this.W + 300, this.H + 300);
     } else {
       this.X += this.SX;
       this.Y += this.SY;
@@ -104,12 +101,12 @@ $(document).ready(function() {
   }
 
   var initFabrics = function() {
-    for (var i = 0; i < 39; i++) {
+    for (var i = 0; i < images.length; i++) {
       new Fabric('image/' + images[i]);
     }
   }
 
   initFabrics();
   // Original timing of the screensaver
-  setInterval(drawScreen, 10);
+  setInterval(drawScreen, 60);
 });
